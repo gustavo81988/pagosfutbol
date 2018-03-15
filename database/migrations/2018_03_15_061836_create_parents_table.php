@@ -18,7 +18,7 @@ class CreateParentsTable extends Migration
             $table->char('name',50);
             $table->char('lastname',50);
             $table->char('email',120);
-            $table->integer('phone');
+            $table->bigInteger('phone');
             $table->timestamps();
         });
     }

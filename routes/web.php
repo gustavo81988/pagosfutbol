@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('players', 'PlayerController');
+Route::resource('parents', 'ParentsController');
 
 
 Auth::routes();

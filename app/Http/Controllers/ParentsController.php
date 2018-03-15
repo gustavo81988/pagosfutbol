@@ -24,7 +24,7 @@ class ParentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('parents.create');
     }
 
     /**
@@ -35,7 +35,24 @@ class ParentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'name'     => 'required|min:2|max:50',
+            'lastname' => 'required|min:2|max:50',
+            'ci'       => 'required|integer|unique:parents,ci',
+            'phone'    => 'required|integer',
+            'email'    => 'required|email',
+        ]);
+        
+        $parent = new Parents;
+        
+        $parent->name     = $request->name;
+        $parent->lastname = $request->lastname;
+        $parent->ci       = $request->ci;
+        $parent->phone    = $request->phone;
+        $parent->email    = $request->email;
+        $parent->save();
+        
+        return redirect('/');
     }
 
     /**
