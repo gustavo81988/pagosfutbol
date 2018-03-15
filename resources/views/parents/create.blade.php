@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Registrar Jugador</div>
+                <div class="card-header">Registrar Representante</div>
 
                 <div class="card-body">
                     <form method="POST" action="<?= action('ParentsController@store');?>">
