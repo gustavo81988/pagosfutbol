@@ -38,7 +38,7 @@ class PlayerController extends Controller
         $this->validate(request(),[
             'name'     => 'required|min:2|max:50',
             'lastname' => 'required|min:2|max:50',
-            'ci'       => 'required|integer',
+            'ci'       => 'required|integer|unique:players,ci',
             'birthday' => 'required|date',
         ]);
         
