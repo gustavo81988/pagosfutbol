@@ -39,7 +39,7 @@ class ParentsController extends Controller
             'name'     => 'required|min:2|max:50',
             'lastname' => 'required|min:2|max:50',
             'ci'       => 'required|integer|unique:parents,ci',
-            'phone'    => 'required|integer',
+            'phone'    => 'required|numeric',
             'email'    => 'required|email',
         ]);
         
@@ -52,7 +52,7 @@ class ParentsController extends Controller
         $parent->email    = $request->email;
         $parent->save();
         
-        return redirect('/');
+        return redirect('/parents/create');
     }
 
     /**
