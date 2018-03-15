@@ -19,7 +19,6 @@ class CreatePlayersTable extends Migration
             $table->integer('parent_id')->nullable()->default(null);
             $table->char('name',50);
             $table->char('lastname',50);
-            $table->char('email',100);
             $table->date('birthday');
             $table->timestamps();
         });
