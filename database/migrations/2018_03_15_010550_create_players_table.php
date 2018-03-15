@@ -16,10 +16,11 @@ class CreatePlayersTable extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('ci')->unique();
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable()->default(null);
             $table->char('name',50);
             $table->char('lastname',50);
-            $table->char('nationality',100);
+            $table->char('email',100);
+            $table->date('birthday');
             $table->timestamps();
         });
     }

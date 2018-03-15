@@ -24,7 +24,7 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('players.create');
     }
 
     /**
@@ -35,7 +35,24 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(),[
+            'name'     => 'required|min:2|max:50',
+            'lastname' => 'required|min:2|max:50',
+            'email'    => 'required|email',
+            'ci'       => 'required|integer',
+            'birthday' => 'required|date',
+        ]);
+        
+        $player = new Player;
+        
+        $player->name      = $request->name;
+        $player->lastname  = $request->lastname;
+        $player->email     = $request->email;
+        $player->ci        = $request->ci;
+        $player->birthday  = $request->birthday;
+        $player->save();
+        
+        return redirect('/');
     }
 
     /**
