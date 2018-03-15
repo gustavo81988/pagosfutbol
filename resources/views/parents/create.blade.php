@@ -5,12 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Asignar Representante</div>
+                <div class="card-header">
+                    Asignar Representante
+                </div>
                 
                 <div class="card-body">
                     <div class="row">
-                        
+
                     <div class="col-md-5">
+
+                        <div class="form-group">
+                            <strong>Alumno:</strong> {{$player->name}} {{$player->lastname}}<br>
+                            <strong>Cedula de identidad:</strong> {{$player->ci}}
+                        </div>
+
                         Cedula representante: <br>
                         <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
                         <br>
@@ -29,6 +37,7 @@
                             <thead> 
                                 <tr> 
                                     <th>Datos representante</th>
+                                    <th></th>
                                 </tr> 
                             </thead> 
 

@@ -50,7 +50,7 @@ class PlayerController extends Controller
         $player->birthday  = $request->birthday;
         $player->save();
         
-        return redirect('/');
+        return redirect('/parents/assign/'.$player->ci);
     }
 
     /**

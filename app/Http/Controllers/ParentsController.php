@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Parents;
+use App\Player;
 use Illuminate\Http\Request;
 
 class ParentsController extends Controller
@@ -25,6 +26,12 @@ class ParentsController extends Controller
     public function create()
     {
         return view('parents.create');
+    }
+
+    public function parentAssignment($ci)
+    {
+        $player = Player::find($ci);
+        return view('parents.create',compact('player'));
     }
 
     /**

@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::resource('players', 'PlayerController');
 Route::resource('parents', 'ParentsController');
+Route::get('/parents/assign/{ci}', 'ParentsController@parentAssignment');
 
 
 Auth::routes();
