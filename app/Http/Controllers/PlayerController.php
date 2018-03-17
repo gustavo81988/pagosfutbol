@@ -86,6 +86,12 @@ class PlayerController extends Controller
     {
         //
     }
+    
+    public function updateParent(Request $request){
+        $player = Player::find($request->player_id);
+        $player->parent_id = $request->parent_id;
+        $player->save();
+    }
 
     /**
      * Remove the specified resource from storage.

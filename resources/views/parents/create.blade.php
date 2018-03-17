@@ -16,15 +16,16 @@
 
                         <div class="form-group">
                             <strong>Alumno:</strong> {{$player->name}} {{$player->lastname}}<br>
-                            <strong>Cedula de identidad:</strong> {{$player->ci}}
+                            <strong>Cedula de identidad:</strong> {{$player->id}}
                         </div>
 
                         Cedula representante: <br>
-                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                        <input id="" type="text" class="form-control">
+                        <input id="parent_id" value="20122333" type="hidden" class="form-control">
                         <br>
                         <!-- Button trigger modal -->
                         @include('parents.createmodal')
-                        <button type="button" name="searchparent" class="btn btn-primary">
+                        <button type="button" id="searchparent" class="btn btn-primary">
                           Buscar
                         </button>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -52,12 +53,12 @@
                                 </tr> 
                                 <tr> 
                                     <th scope="row">Cedula</th> 
-                                    <td colspan="2">18351089</td> 
+                                    <td colspan="2">20122333</td> 
                                 </tr> 
                             </tbody> 
                         </table>
-                        <button type="button" class="btn btn-primary">
-                          Asignar
+                        <button id="assignparent" type="button" class="btn btn-primary">
+                            Asignar
                         </button>
                     </div>
                     
@@ -71,7 +72,24 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        
+        $("#assignparent").bind( "click", function() {
+            
+            var parent_id = $('#parent_id').val();
+            var player_id = {{$player->id}};
+            
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "<?= action('PlayerController@updateParent');?>",
+                data: { parent_id: parent_id, player_id:player_id  },
+                dataType : 'json', 
+                success: function(){
+                    
+                }
+            });
+        });
     });
 </script>
 @endsection
