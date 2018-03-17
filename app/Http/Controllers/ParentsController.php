@@ -28,6 +28,12 @@ class ParentsController extends Controller
         return view('parents.create');
     }
 
+    public function searchParent($id)
+    {
+        $parent = Parents::find($id);
+        return $parent;
+    }
+
     public function parentAssignment($ci)
     {
         $player = Player::find($ci);
@@ -49,16 +55,16 @@ class ParentsController extends Controller
             'phone'    => 'required|numeric',
             'email'    => 'required|email',
         ]);
-        
+
         $parent = new Parents;
-        
+
         $parent->name     = $request->name;
         $parent->lastname = $request->lastname;
         $parent->ci       = $request->ci;
         $parent->phone    = $request->phone;
         $parent->email    = $request->email;
         $parent->save();
-        
+
         return redirect('/parents/create');
     }
 

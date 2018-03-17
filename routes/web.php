@@ -20,6 +20,7 @@ Route::post('/players/updateParent/', 'PlayerController@updateParent');
 
 Route::resource('parents', 'ParentsController');
 Route::get('/parents/assign/{ci}', 'ParentsController@parentAssignment');
+Route::get('/parents/search/{id}', 'ParentsController@searchParent');
 
 
 Auth::routes();
