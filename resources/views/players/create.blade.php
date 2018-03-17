@@ -24,7 +24,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">Apellido</label>
 
@@ -38,21 +38,21 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
-                            <label for="ci" class="col-md-4 col-form-label text-md-right">Cédula de identidad</label>
+                            <label for="id" class="col-md-4 col-form-label text-md-right">Cédula de identidad</label>
 
                             <div class="col-md-6">
-                                <input id="ci" type="text" class="form-control{{ $errors->has('ci') ? ' is-invalid' : '' }}" name="ci" value="{{ old('ci') }}" required autofocus>
+                                <input id="id" type="text" class="form-control{{ $errors->has('id') ? ' is-invalid' : '' }}" name="id" value="{{ old('id') }}" required autofocus>
 
-                                @if ($errors->has('ci'))
+                                @if ($errors->has('id'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('ci') }}</strong>
+                                        <strong>{{ $errors->first('id') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label for="birthday" class="col-md-4 col-form-label text-md-right">Fecha de nacimiento</label>
 

@@ -38,19 +38,19 @@ class PlayerController extends Controller
         $this->validate(request(),[
             'name'     => 'required|min:2|max:50',
             'lastname' => 'required|min:2|max:50',
-            'ci'       => 'required|integer|unique:players,ci',
+            'id'       => 'required|integer|unique:players,id',
             'birthday' => 'required|date',
         ]);
-        
+
         $player = new Player;
-        
+
         $player->name      = $request->name;
         $player->lastname  = $request->lastname;
-        $player->ci        = $request->ci;
+        $player->id        = $request->id;
         $player->birthday  = $request->birthday;
         $player->save();
-        
-        return redirect('/parents/assign/'.$player->ci);
+
+        return redirect('/parents/assign/'.$player->id);
     }
 
     /**
@@ -86,7 +86,7 @@ class PlayerController extends Controller
     {
         //
     }
-    
+
     public function updateParent(Request $request){
         $player = Player::find($request->player_id);
         $player->parent_id = $request->parent_id;
