@@ -51,7 +51,7 @@ class ParentsController extends Controller
         $this->validate(request(),[
             'name'     => 'required|min:2|max:50',
             'lastname' => 'required|min:2|max:50',
-            'ci'       => 'required|integer|unique:parents,ci',
+            'id'       => 'required|integer|unique:parents,id',
             'phone'    => 'required|numeric',
             'email'    => 'required|email',
         ]);
@@ -60,12 +60,12 @@ class ParentsController extends Controller
 
         $parent->name     = $request->name;
         $parent->lastname = $request->lastname;
-        $parent->ci       = $request->ci;
+        $parent->id       = $request->id;
         $parent->phone    = $request->phone;
         $parent->email    = $request->email;
         $parent->save();
 
-        return redirect('/parents/create');
+        return redirect()->back();
     }
 
     /**
